@@ -1,2 +1,8 @@
 import React from "react";
-export default () => <div>Home</div>;
+import Clock from "../Components/Clock";
+
+export default () => (
+  <div>
+    <Clock />
+  </div>
+);

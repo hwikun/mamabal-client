@@ -5,6 +5,7 @@ Client for Mamabal with React, Typescript
 ## Screen
 
 - [ ] Home
+- [ ] Timer and Clock of Dating
 - [ ] Instagram Tab
 - [ ] Youtube Tab
 - [ ] Trable Tab
