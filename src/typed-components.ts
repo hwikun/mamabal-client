@@ -1,9 +1,9 @@
 import * as styledComponents from "styled-components";
 import { ThemedStyledComponentsModule } from "styled-components";
 
-interface IThemeInterface {
+type IThemeInterface = {
   blueColor: String;
-}
+};
 
 const {
   default: styled,
