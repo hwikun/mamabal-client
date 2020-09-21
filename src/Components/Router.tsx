@@ -1,17 +1,35 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Auth from "../Route/Auth";
+import Navigation from "./Navigation";
+import Profile from "../Route/Profile";
 import Home from "../Route/Home";
 
-export default () => (
-  <Router>
+interface IAppProps {
+  isLoggedIn?: Boolean | null;
+  userObj?: any | null;
+}
+
+const AppRouter: React.FC<IAppProps> = ({ isLoggedIn, userObj }) => (
+  <BrowserRouter>
+    {isLoggedIn && <Navigation />}
     <Switch>
-      <Route path="/" exact component={Home} />
-      <Redirect from="*" to="/" />
+      {isLoggedIn ? (
+        <>
+          <Route exact path="/">
+            <Home userObj={userObj} />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+        </>
+      ) : (
+        <Route exact path="/">
+          <Auth />
+        </Route>
+      )}
     </Switch>
-  </Router>
+  </BrowserRouter>
 );
+
+export default AppRouter;

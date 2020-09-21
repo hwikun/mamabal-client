@@ -4,14 +4,9 @@ Client for Mamabal with React, Typescript
 
 ## Screen
 
+- [ ] Login
 - [ ] Home
-- [ ] Timer and Clock of Dating
-- [ ] Instagram Tab
-- [ ] Youtube Tab
-- [ ] Trable Tab
-
-## API
-
-- [ ] Instagram
-- [ ] Youtube
-- [ ] Google Maps
+- [x] Timer and Clock of Dating
+- [ ] Profile
+- [ ] Mweet
+- [ ] Upload pics
