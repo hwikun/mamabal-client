@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/mamabal-client/static/js/main.8207b693.chunk.js",
-    "main.js.map": "/mamabal-client/static/js/main.8207b693.chunk.js.map",
+    "main.js": "/mamabal-client/static/js/main.4dac2858.chunk.js",
+    "main.js.map": "/mamabal-client/static/js/main.4dac2858.chunk.js.map",
     "runtime-main.js": "/mamabal-client/static/js/runtime-main.c5431b68.js",
     "runtime-main.js.map": "/mamabal-client/static/js/runtime-main.c5431b68.js.map",
-    "static/js/2.8621c0fc.chunk.js": "/mamabal-client/static/js/2.8621c0fc.chunk.js",
-    "static/js/2.8621c0fc.chunk.js.map": "/mamabal-client/static/js/2.8621c0fc.chunk.js.map",
+    "static/js/2.78ea52ae.chunk.js": "/mamabal-client/static/js/2.78ea52ae.chunk.js",
+    "static/js/2.78ea52ae.chunk.js.map": "/mamabal-client/static/js/2.78ea52ae.chunk.js.map",
     "index.html": "/mamabal-client/index.html",
-    "precache-manifest.03e13fdf1068debf78c77a4e543ce205.js": "/mamabal-client/precache-manifest.03e13fdf1068debf78c77a4e543ce205.js",
+    "precache-manifest.ea07d0b72ca932b3bc1873df8cc20c44.js": "/mamabal-client/precache-manifest.ea07d0b72ca932b3bc1873df8cc20c44.js",
     "service-worker.js": "/mamabal-client/service-worker.js",
-    "static/js/2.8621c0fc.chunk.js.LICENSE.txt": "/mamabal-client/static/js/2.8621c0fc.chunk.js.LICENSE.txt"
+    "static/js/2.78ea52ae.chunk.js.LICENSE.txt": "/mamabal-client/static/js/2.78ea52ae.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c5431b68.js",
-    "static/js/2.8621c0fc.chunk.js",
-    "static/js/main.8207b693.chunk.js"
+    "static/js/2.78ea52ae.chunk.js",
+    "static/js/main.4dac2858.chunk.js"
   ]
 }
