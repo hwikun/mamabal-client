@@ -51,8 +51,11 @@ const Clock = () => {
   };
 
   useEffect(() => {
-    setInterval(getDate, 1000);
-  }, [sec]);
+    const timeSet = setInterval(getDate, 1000);
+    return () => {
+      clearInterval(timeSet);
+    };
+  }, []);
 
   return (
     <Container>

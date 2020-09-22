@@ -12,15 +12,33 @@ const App = () => {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
-        setUserObj(user);
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args: any) => user.updateProfile(args),
+        });
       }
       setInit(true);
     });
   }, []);
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    if (user) {
+      setUserObj({
+        displayName: user.displayName,
+        uid: user.uid,
+        updateProfile: (args: any) => user.updateProfile(args),
+      });
+    }
+  };
   return (
     <ThemeProvider theme={theme}>
       {init ? (
-        <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} />
+        <AppRouter
+          refreshUser={refreshUser}
+          isLoggedIn={Boolean(userObj)}
+          userObj={userObj}
+        />
       ) : (
         <Loader />
       )}

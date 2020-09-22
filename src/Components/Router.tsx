@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Auth from "../Route/Auth";
 import Navigation from "./Navigation";
 import Profile from "../Route/Profile";
@@ -8,11 +8,16 @@ import Home from "../Route/Home";
 interface IAppProps {
   isLoggedIn?: Boolean | null;
   userObj?: any | null;
+  refreshUser: any;
 }
 
-const AppRouter: React.FC<IAppProps> = ({ isLoggedIn, userObj }) => (
+const AppRouter: React.FC<IAppProps> = ({
+  refreshUser,
+  isLoggedIn,
+  userObj,
+}) => (
   <BrowserRouter>
-    {isLoggedIn && <Navigation />}
+    {isLoggedIn && <Navigation userObj={userObj} />}
     <Switch>
       {isLoggedIn ? (
         <>
@@ -20,13 +25,17 @@ const AppRouter: React.FC<IAppProps> = ({ isLoggedIn, userObj }) => (
             <Home userObj={userObj} />
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <Profile userObj={userObj} refreshUser={refreshUser} />
           </Route>
+          <Redirect from="*" to="/" />
         </>
       ) : (
-        <Route exact path="/">
-          <Auth />
-        </Route>
+        <>
+          <Route exact path="/">
+            <Auth />
+          </Route>
+          <Redirect from="*" to="/" />
+        </>
       )}
     </Switch>
   </BrowserRouter>

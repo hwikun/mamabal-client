@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "../firebase";
 
-interface IMwitObj {
+export interface IMwitObj {
   text: string;
   createdAt: number;
   id: string;
@@ -62,8 +62,8 @@ const Mwit: React.FC<IMwitProps> = ({ mwitObj, isOwner }) => {
           )}
           {isOwner && (
             <>
-              <button onClick={onDeleteClick}>Delete</button>
-              <button onClick={toggleEditing}>Edit</button>
+              <button onClick={onDeleteClick}>消す</button>
+              <button onClick={toggleEditing}>編集</button>
             </>
           )}
         </>

@@ -16,15 +16,18 @@ interface IMwitArray {
 const Home: React.FC<IUserObjProps> = ({ userObj }) => {
   const [mwit, setMwit] = useState("");
   const [mwits, setMwits] = useState<IMwitArray[]>([]);
-  const [attachment, setAttachment] = useState<any | null>(null);
+  const [attachment, setAttachment] = useState<any | null>("");
   useEffect(() => {
-    dbService.collection("mwits").onSnapshot((snapshot) => {
-      const mwitArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setMwits(mwitArray);
-    });
+    dbService
+      .collection("mwits")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const mwitArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setMwits(mwitArray);
+      });
   }, []);
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
