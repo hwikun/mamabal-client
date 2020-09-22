@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mamabal-client/precache-manifest.f399a394ef84ee1cce97abb3b833a0e6.js"
+  "/mamabal-client/precache-manifest.03e13fdf1068debf78c77a4e543ce205.js"
 );
 
 self.addEventListener('message', (event) => {
