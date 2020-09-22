@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f619573363b2320e20158da80c398f05",
+    "revision": "ab9f8aedd29c59dc4c26e2511ebda838",
     "url": "/mamabal-client/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mamabal-client/static/js/2.78ea52ae.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "efe0519a4c18862f86ee",
-    "url": "/mamabal-client/static/js/main.4dac2858.chunk.js"
+    "revision": "1036f723d961f5dc6dc8",
+    "url": "/mamabal-client/static/js/main.c70f903a.chunk.js"
   },
   {
     "revision": "6cb79eee991c27805b2b",
