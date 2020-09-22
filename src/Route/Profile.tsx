@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Mwit from "../Components/Mwit";
 import { authService, dbService } from "../firebase";
-import { IMwitObj } from "../Components/Mwit";
 import { Helmet } from "react-helmet";
 
 interface IProfileProps {

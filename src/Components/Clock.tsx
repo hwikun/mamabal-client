@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import dayjs from "dayjs";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -25,8 +26,8 @@ const Clock = () => {
   const [sec, setSec] = useState("");
 
   const getDate = () => {
-    const startDay = Number(new Date("2019-02-01:00:00:00+0900"));
-    let now = Number(new Date());
+    const startDay = Number(dayjs("2019-02-01:00:00:00+0900"));
+    let now = Number(dayjs());
     let remained = startDay - now;
 
     const DAY = 1000 * 60 * 60 * 24;
