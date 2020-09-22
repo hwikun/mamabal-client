@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, HashRouter } from "react-router-dom";
 import Auth from "../Route/Auth";
 import Navigation from "./Navigation";
 import Profile from "../Route/Profile";
@@ -16,7 +16,7 @@ const AppRouter: React.FC<IAppProps> = ({
   isLoggedIn,
   userObj,
 }) => (
-  <BrowserRouter>
+  <HashRouter>
     {isLoggedIn && <Navigation userObj={userObj} />}
     <Switch>
       {isLoggedIn ? (
@@ -38,7 +38,7 @@ const AppRouter: React.FC<IAppProps> = ({
         </>
       )}
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default AppRouter;

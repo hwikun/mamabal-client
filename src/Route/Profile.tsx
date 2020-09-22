@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Mwit from "../Components/Mwit";
 import { authService, dbService } from "../firebase";
 import { IMwitObj } from "../Components/Mwit";
+import { Helmet } from "react-helmet";
 
 interface IProfileProps {
   userObj: any | null;
@@ -50,6 +51,9 @@ const Profile: React.FC<IProfileProps> = ({ userObj, refreshUser }) => {
   };
   return (
     <>
+      <Helmet>
+        <title>Profile | Mamabal</title>
+      </Helmet>
       {editing ? (
         <>
           <form onSubmit={onSubmit}>

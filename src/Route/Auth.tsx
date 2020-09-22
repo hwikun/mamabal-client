@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { authService, firebaseInstance } from "../firebase";
 
 const Auth = () => {
@@ -52,6 +53,9 @@ const Auth = () => {
   const toggleAccount = () => setNewAccount((prev) => !prev);
   return (
     <>
+      <Helmet>
+        <title>Login | Mamabal</title>
+      </Helmet>
       <form onSubmit={onSubmit}>
         <input
           name="email"
