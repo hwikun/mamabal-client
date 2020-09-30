@@ -1,11 +1,76 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "../firebase";
+import styled from "styled-components";
+import dayjs from "dayjs";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+`;
+
+const EditForm = styled.form``;
+const EditCancel = styled.button``;
+const EditInput = styled.input``;
+const EditSubmit = styled.input``;
+
+const MwitContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+  padding: 1em;
+  border-radius: 20px;
+`;
+
+const WriterContainer = styled.div`
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Name = styled.span`
+  font-size: 0.9em;
+  font-weight: 700;
+`;
+const Time = styled.span`
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-left: 5px;
+`;
+const MwitContent = styled.div`
+  width: 100%;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Kosugi";
+`;
+
+const MwitText = styled.span``;
+
+const MwitButton = styled.span``;
+const MwitImg = styled.img`
+  margin-top: 10px;
+  border-radius: 15px;
+  align-self: center;
+`;
+
+const Button = styled.span`
+  margin-right: 0.5em;
+`;
 
 export interface IMwitObj {
   text: string;
   createdAt: number;
   id: string;
   attachmentUrl: string;
+  displayName: string;
 }
 
 interface IMwitProps {
@@ -39,36 +104,57 @@ const Mwit: React.FC<IMwitProps> = ({ mwitObj, isOwner }) => {
     setNewMwit(value);
   };
   return (
-    <div>
+    <Container>
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
-            <input
+          <EditForm onSubmit={onSubmit}>
+            <EditInput
               type="text"
               placeholder="更新内容"
               value={newMwit}
               required
               onChange={onChange}
             />
-            <input type="submit" value="編集" />
-          </form>
-          <button onClick={toggleEditing}>キャンセル</button>
+            <EditSubmit type="submit" value="編集" />
+            <EditCancel onClick={toggleEditing}>キャンセル</EditCancel>
+          </EditForm>
         </>
       ) : (
         <>
-          <h4>{mwitObj.text}</h4>
-          {mwitObj.attachmentUrl && (
-            <img src={mwitObj.attachmentUrl} width="300px" />
-          )}
-          {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>消す</button>
-              <button onClick={toggleEditing}>編集</button>
-            </>
-          )}
+          <MwitContainer>
+            <WriterContainer>
+              <Name>
+                {mwitObj.displayName}
+                <Time>
+                  {dayjs(mwitObj.createdAt)
+                    .format()
+                    .replace("T", " ")
+                    .replace("+09:00", "")}
+                </Time>
+              </Name>
+              <MwitButton>
+                {isOwner && (
+                  <>
+                    <Button onClick={onDeleteClick}>
+                      <FontAwesomeIcon icon={faTrash} />
+                    </Button>
+                    <Button onClick={toggleEditing}>
+                      <FontAwesomeIcon icon={faPen} />
+                    </Button>
+                  </>
+                )}
+              </MwitButton>
+            </WriterContainer>
+            <MwitContent>
+              <MwitText>{mwitObj.text}</MwitText>
+            </MwitContent>
+            {mwitObj.attachmentUrl && (
+              <MwitImg src={mwitObj.attachmentUrl} width="80%" />
+            )}
+          </MwitContainer>
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { authService, firebaseInstance } from "../firebase";
+import React from "react";
 import { Helmet } from "react-helmet";
 import AuthFrom from "../Components/AuthFrom";
 import SocialLogin from "../Components/SocialLogin";

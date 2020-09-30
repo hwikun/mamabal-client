@@ -4,6 +4,19 @@ import { Helmet } from "react-helmet";
 import { dbService } from "../firebase";
 import Mwit from "../Components/Mwit";
 import MwitCreator from "../Components/MwitCreator";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const MwitContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+`;
 
 interface IUserObjProps {
   userObj: any | null;
@@ -33,10 +46,9 @@ const Home: React.FC<IUserObjProps> = ({ userObj }) => {
       <Helmet>
         <title>Home | Mamabal</title>
       </Helmet>
-      <Clock />
-      <div>
-        <MwitCreator userObj={userObj} />
-        <div>
+      <Container>
+        <Clock />
+        <MwitContainer>
           {mwits.map((mwit: any) => (
             <Mwit
               key={mwit.id}
@@ -44,8 +56,9 @@ const Home: React.FC<IUserObjProps> = ({ userObj }) => {
               isOwner={mwit.creatorId === userObj.uid}
             />
           ))}
-        </div>
-      </div>
+        </MwitContainer>
+      </Container>
+      <MwitCreator userObj={userObj} />
     </>
   );
 };

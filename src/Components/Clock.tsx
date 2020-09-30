@@ -3,20 +3,22 @@ import dayjs from "dayjs";
 import styled from "styled-components";
 
 const Container = styled.div`
+  padding: 1em;
+  height: 10em;
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 
 const Title = styled.div`
-  font-size: 80px;
+  font-size: 3em;
   font-weight: 700;
   margin-bottom: 20px;
 `;
 
 const Dday = styled.div`
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 1.8em;
+  font-weight: 500;
 `;
 
 const Clock = () => {

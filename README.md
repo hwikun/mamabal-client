@@ -4,9 +4,10 @@ Client for Mamabal with React, Typescript
 
 ## Screen
 
-- [ ] Login
-- [ ] Home
+- [x] Login
+- [x] Home
 - [x] Timer and Clock of Dating
-- [ ] Profile
-- [ ] Mweet
-- [ ] Upload pics
+- [x] Profile
+- [x] Mweet
+- [ ] display timeline
+- [x] Upload pics

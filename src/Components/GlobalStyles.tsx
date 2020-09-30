@@ -6,6 +6,13 @@ const GlobalStyles = createGlobalStyle`
   ${reset}
   * {
     font-family: 'Kosugi', sans-serif;
+    box-sizing: border-box;
+  }
+  #root {
+    padding: 20px 5%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

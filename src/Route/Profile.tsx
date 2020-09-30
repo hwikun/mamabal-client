@@ -2,6 +2,19 @@ import React, { useEffect, useState } from "react";
 import Mwit from "../Components/Mwit";
 import { authService, dbService } from "../firebase";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
+
+const ButtonContainer = styled.span`
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 interface IProfileProps {
   userObj: any | null;
@@ -67,18 +80,20 @@ const Profile: React.FC<IProfileProps> = ({ userObj, refreshUser }) => {
           <button onClick={toggleEditing}>キャンセル</button>
         </>
       ) : (
-        <>
+        <ButtonContainer>
           <button onClick={toggleEditing}>プロフィールアップデート</button>
-        </>
+          <button onClick={onLogoutClick}>Logout</button>
+        </ButtonContainer>
       )}
-      {myMwits.map((myMwit: any) => (
-        <Mwit
-          key={myMwit.id}
-          mwitObj={myMwit}
-          isOwner={myMwit.creatorId === userObj.uid}
-        />
-      ))}
-      <button onClick={onLogoutClick}>Logout</button>
+      <Container>
+        {myMwits.map((myMwit: any) => (
+          <Mwit
+            key={myMwit.id}
+            mwitObj={myMwit}
+            isOwner={myMwit.creatorId === userObj.uid}
+          />
+        ))}
+      </Container>
     </>
   );
 };
